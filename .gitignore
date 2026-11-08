@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.spec
+build/
+build_*/
+dist/
+dist_*/
+*.bin
+DataFlash*
+CodeFlash*
+*.log
