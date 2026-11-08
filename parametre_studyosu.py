@@ -39,7 +39,7 @@ i18n.set_lang("en")  # motor uyarıları İngilizce gelsin
 
 APP_TITLE = "J533 Veri Seti & Parametre Stüdyosu"
 APP_SUBTITLE = "Continental 3Q0 907 530 · DataFlash 64 KB · ZDC / MKE / Start-Stop / FPA / BEM · DTC kataloğu"
-APP_VERSION = "0.1"
+APP_VERSION = "0.1.1"
 CREDIT = ("Motor: ContiTool — PerkTheFox · github.com/perkthefox/mqb_contitool  ·  arayüz: Denizli Garaj")
 DFLASH_SIZE = 65536
 
@@ -123,7 +123,7 @@ class Studio(ttk.Frame):
     # ------------------------------------------------------------------ UI
     def _build(self) -> None:
         self.columnconfigure(0, weight=1)
-        self.rowconfigure(1, weight=1)
+        self.rowconfigure(2, weight=1)
 
         head = ttk.Frame(self)
         head.grid(row=0, column=0, sticky="ew", pady=(0, 6))
@@ -138,7 +138,7 @@ class Studio(ttk.Frame):
         ttk.Label(head, text=f"v{APP_VERSION}", foreground="#8b949e").grid(row=0, column=2, rowspan=2, sticky="e")
 
         bar = ttk.Frame(self)
-        bar.grid(row=2, column=0, sticky="ew", pady=(0, 6))
+        bar.grid(row=1, column=0, sticky="ew", pady=(0, 6))
         bar.columnconfigure(3, weight=1)
         ttk.Button(bar, text="DataFlash aç…", command=self._pick).grid(row=0, column=0)
         ttk.Button(bar, text="Yeniden yükle", command=self._reload).grid(row=0, column=1, padx=6)
@@ -150,7 +150,7 @@ class Studio(ttk.Frame):
         self.lbl_state.grid(row=0, column=4, sticky="e")
 
         self.nb = ttk.Notebook(self)
-        self.nb.grid(row=1, column=0, sticky="nsew")
+        self.nb.grid(row=2, column=0, sticky="nsew")
         self.tab_sum = ttk.Frame(self.nb, padding=8)
         self.tab_pass = ttk.Frame(self.nb, padding=8)
         self.tab_mke = ttk.Frame(self.nb, padding=8)
